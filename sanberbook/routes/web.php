@@ -7,3 +7,4 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/register', [FormController::class, 'register']);
 Route::post('/welcome', [FormController::class, 'welcome']);
 
+
