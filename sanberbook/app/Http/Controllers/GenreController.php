@@ -31,7 +31,7 @@ class GenreController extends Controller
 
     public function show($id)
     {
-        $genre = Genre::findOrFail($id);
+        $genre = Genre::with('books')->findOrFail($id);
         return view('genres.show', compact('genre'));
     }
 
