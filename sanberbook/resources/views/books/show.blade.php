@@ -6,11 +6,14 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <!-- Book Details Card -->
-                <div class="card mb-4" style="width: 450px; margin: 0 auto;">
-                    <img src="{{ asset('storage/' . $book->image) }}" class="card-img-top" alt="{{ $book->title }}">
+                <div class="card mb-4">
+                    <div class="book-image-container" style="height: 400px; overflow: hidden;">
+                        <img src="{{ asset('storage/' . $book->image) }}" class="card-img-top" alt="{{ $book->title }}" 
+                             style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                    </div>
                     <div class="card-body">
                         <h1 class="card-title">{{ $book->title }}</h1>
                         <p class="text-muted">Genre: {{ $book->genre->name }}</p>
@@ -84,4 +87,22 @@
             </div>
         </div>
     </div>
+
+<style>
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .card {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .book-image-container {
+        height: 300px !important;
+    }
+}
+</style>
 @endsection 
